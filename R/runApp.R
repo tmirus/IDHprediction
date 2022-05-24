@@ -4,7 +4,7 @@ library(shiny)
 ui <- fluidPage(
   ## Input
   # Main title of the app
-  headerPanel(h1(strong("Prediction of the IDH mutation status"), align = "center")),
+  shiny::titlePanel(h1(strong("Prediction of the IDH mutation status"), align = "center"), windowTitle = "IDHprediction"),
   shiny::titlePanel(h4("NOTE: This application is for research purposes only", align = "center")),
 
   # Settings of the user
