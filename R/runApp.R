@@ -4,8 +4,7 @@ library(shiny)
 ui <- fluidPage(
   ## Input
   # Main title of the app
-  headerPanel("IDH mutation prediction"),
-  titlePanel(h1(strong("Prediction of the IDH mutation status"), align = "center")),
+  headerPanel(h1(strong("Prediction of the IDH mutation status"), align = "center")),
   shiny::titlePanel(h4("NOTE: This application is for research purposes only", align = "center")),
 
   # Settings of the user
@@ -321,21 +320,25 @@ A plot comparing the used spectrum against an average over all training spectra 
 #' Run Shiny Application for prediction
 #'
 #' This starts the shiny app.
-#' By default, the server will be started on the default shiny port.
-#' If a default browser is set on the system, the
-#' page should open automatically.
-#'
-#' @param ... parameters passed to shiny::shinyApp()
+#' @param port the port on which the server is run, default 8080
 #' @return NULL
-#' @details Advanced users may pass arguments that will be passed to shiny::shinyApp() for
-#' configuration of the server adress and port
 #' @export
 
-runWebApp <- function(...)
+runWebApp <- function(port = 8080)
 {
   # packages and dependencies
   require(ggplot2, quietly = TRUE)
   require(e1071, quietly = TRUE)
-  shiny::shinyApp(ui = ui, server = server,...)
+  shiny::shinyApp(
+		  ui = ui, 
+		  server = server,
+  		  options = list(
+		   port = port,
+		   launch.browser = FALSE,
+		   host = "0.0.0.0",
+	           quiet = TRUE,
+	           display.mode = "normal"	   
+		  )
+  )
 }
 
