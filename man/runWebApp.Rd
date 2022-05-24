@@ -4,18 +4,13 @@
 \alias{runWebApp}
 \title{Run Shiny Application for prediction}
 \usage{
-runWebApp(...)
+runWebApp(port = 8080, launch.browser = TRUE)
 }
 \arguments{
-\item{...}{parameters passed to shiny::shinyApp()}
+\item{port}{the port on which the server is run, default 8080}
+
+\item{launch.browser}{bool, should default browser be launched to display the app? default TRUE}
 }
 \description{
 This starts the shiny app.
-By default, the server will be started on the default shiny port.
-If a default browser is set on the system, the
-page should open automatically.
-}
-\details{
-Advanced users may pass arguments that will be passed to shiny::shinyApp() for
-configuration of the server adress and port
 }

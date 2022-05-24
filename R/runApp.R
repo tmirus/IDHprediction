@@ -321,10 +321,11 @@ A plot comparing the used spectrum against an average over all training spectra 
 #'
 #' This starts the shiny app.
 #' @param port the port on which the server is run, default 8080
+#' @param launch.browser bool, should default browser be launched to display the app? default TRUE
 #' @return NULL
 #' @export
 
-runWebApp <- function(port = 8080)
+runWebApp <- function(port = 8080, launch.browser = TRUE)
 {
   # packages and dependencies
   require(ggplot2, quietly = TRUE)
@@ -334,7 +335,7 @@ runWebApp <- function(port = 8080)
 		  server = server,
   		  options = list(
 		   port = port,
-		   launch.browser = FALSE,
+		   launch.browser = launch.browser,
 		   host = "0.0.0.0",
 	           quiet = TRUE,
 	           display.mode = "normal"	   

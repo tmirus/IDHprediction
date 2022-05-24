@@ -1,1 +1,1 @@
-IDHprediction::runWebApp()
+IDHprediction::runWebApp(launch.browser = FALSE)
