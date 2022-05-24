@@ -1,0 +1,1 @@
+IDHprediction::runWebApp()
