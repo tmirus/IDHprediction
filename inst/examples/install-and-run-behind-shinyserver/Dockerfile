@@ -6,7 +6,10 @@ FROM rocker/shiny-verse:4.1.2
 #   docker push gitlab.spang-lab.de:4687/containers/idhprediction:1.0.3
 #   start http://localhost/
 
-RUN Rscript -e "devtools::install_github('tmirus/IDHprediction')"
+RUN apt update
+RUN apt install -y git
+RUN git clone https://glpat-mVg7bApfhktEvjtwS3aN:glpat-mVg7bApfhktEvjtwS3aN@gitlab.spang-lab.de/containers/idhprediction.git
+RUN Rscript -e "devtools::install('idhprediction/')"
 COPY \
 	shiny-server.conf \
 	/etc/shiny-server/shiny-server.conf
