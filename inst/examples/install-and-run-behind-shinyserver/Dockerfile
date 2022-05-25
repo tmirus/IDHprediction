@@ -1,9 +1,10 @@
 FROM rocker/shiny-verse:4.1.2
 
-# usage
-# docker build -t tmirus/idh-prediction-shinyserver:latest --no-cache inst/examples/install-and-run-behind-shinyserver
-# docker run -it -p 3838:3838 tmirus/idh-prediction-shinyserver:latest
-# http://localhost:3838/shinyserver/IDHprediction
+# Usage:
+#   docker build -t gitlab.spang-lab.de:4687/containers/idhprediction:1.0.3 inst/examples/install-and-run-behind-shinyserver
+#   docker run -it -p 80:8080 gitlab.spang-lab.de:4687/containers/idhprediction:1.0.3
+#   docker push gitlab.spang-lab.de:4687/containers/idhprediction:1.0.3
+#   start http://localhost/
 
 RUN Rscript -e "devtools::install_github('tmirus/IDHprediction')"
 COPY \

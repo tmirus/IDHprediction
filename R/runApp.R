@@ -360,7 +360,7 @@ A plot comparing the used spectrum against an average over all training spectra 
   })
   
   output$footer <- renderText({
-    "2022        Version 1.1.0"
+    "2022        Version 1.1.2"
   })
 }
 
