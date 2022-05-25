@@ -1,7 +1,7 @@
 Package: IDHprediction
 Type: Package
 Title: Prediction of IDH mutation status based on in-vivo NMR spectrum using SVM
-Version: 1.1.0
+Version: 1.1.1
 Author: Tim Mirus, Martina Haeckl
 Maintainer: Tim Mirus <tim.mirus@stud.uni-regensburg.de>
 Description: This package contains a pre-trained SVM for prediction of IDH mutation status in patients based on in-vivo NMR spectra. A shiny-app is available for easy application of the model to new data, with automatic correction for differences in experimental parameters.
