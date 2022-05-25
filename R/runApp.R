@@ -25,6 +25,7 @@ ui <- fluidPage(
     br(),
     actionButton("button", "Help", style = "color:gray"),
     actionButton("button1", "License", style = "color:gray"),
+    actionButton("button2", "Privacy Policy", style = "color:gray"),
     h5(div(verbatimTextOutput("button"), style = "color:gray")),
     h4(div(textOutput("warning"), style = "color:red"))
   ),
@@ -37,7 +38,10 @@ ui <- fluidPage(
     column(3, h3(strong("Prediction: ")), style = "text-align: center;"),
     column(9, h3(strong(textOutput("result"))), style = "text-align: left;")
   ),
-  br()
+  br(),
+  fluidRow(
+    column(12, textOutput("footer"))
+  )
 )
 
 server <- function(input, output) {
@@ -54,6 +58,7 @@ server <- function(input, output) {
   
   display_help <- FALSE
   display_license <- FALSE
+  display_policy <- FALSE
 
   # Print output of help button
   observeEvent(input$button, {
@@ -75,9 +80,11 @@ A plot comparing the used spectrum against an average over all training spectra 
       })
     display_help <<- TRUE
     display_license <<- FALSE
+    display_policy <<- FALSE
     } else {
       output$button <- renderText({""})
       display_help <<- FALSE
+      display_policy <<- FALSE
       display_license <<- FALSE
     }
   })
@@ -103,10 +110,47 @@ A plot comparing the used spectrum against an average over all training spectra 
     })
     display_license <<- TRUE
     display_help <<-FALSE
+    display_policy <<- FALSE
     } else {
       output$button <- renderText({""})
       display_license <<- FALSE
       display_help <<- FALSE
+      display_policy <<- FALSE
+    }
+  })
+  
+  observeEvent(input$button2, {
+    if (!display_policy)
+    {
+      output$button <- renderText({
+        "Privacy:
+          Cookies
+            This website does not use cookies.
+          Server Log
+            The web server keeps a log of all requests, with the following data:
+
+              The request IP adress
+              Date and Time of the request
+              request type and path
+              the User-Agent of the web browser 
+
+            This data is only used to diagnose tecnical problems.
+
+          Web Analytics / Other Tracking
+            There are no other tracking methods.
+        
+        Data usage:
+          Uploaded data is only used within the active R session. 
+          It is not stored and does not remain on the server."
+      })
+      display_policy <<- TRUE
+      display_license <<- FALSE
+      display_help <<- FALSE
+    } else {
+      output$button <- renderText({""})
+      display_license <<- FALSE
+      display_help <<- FALSE
+      display_policy <<- FALSE
     }
   })
 
@@ -313,6 +357,10 @@ A plot comparing the used spectrum against an average over all training spectra 
   
   output$result <- renderText({
     predict_labels()[which(predict_labels()[,"sampleName"] == input$spectrumList), "Prediction"]
+  })
+  
+  output$footer <- renderText({
+    "2022        Version 1.1.0"
   })
 }
 
