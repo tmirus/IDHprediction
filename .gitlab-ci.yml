@@ -13,4 +13,4 @@ build:
     - docker push $CI_REGISTRY_IMAGE:latest
   only:
     changes:
-      - VERSION
+      - DESCRIPTION
