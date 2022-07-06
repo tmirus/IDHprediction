@@ -4,7 +4,11 @@ This is an easy-to-use intuitive R-shiny app that facilitates the prediction of 
 
 Note that the application is for research purposes only.
 
-## Installation
+## Web Application
+
+The application can be accessed at [https://idh-prediction.spang-lab.de/](https://idh-prediction.spang-lab.de/).
+
+## Local Installation
 
 1) First you need to install R (free). 
     - For windows see:  https://cran.r-project.org/bin/windows/base/
