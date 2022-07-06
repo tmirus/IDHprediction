@@ -65,7 +65,7 @@ server <- function(input, output) {
     if (!display_help){
     output$button <- renderText({
 "The csv file has to consist of two rows. The first row is the header with the numeration, the second row contains the NMR-values.
-However the first column shows the sample name or ID. The decimal separator is a dot, values are separated by a semicolon. Sample names/IDs must be unique.\n
+However the first column shows the sample name or ID. The decimal separator is a dot, values are separated by a semicolon. Sample names/IDs must be unique. Example files can be found on GitHub: https://github.com/tmirus/IDHprediction/tree/main/Examples\n
 For the prediction of the IDH mutation status a linear support vector machine (SVM) was trained on data from Regensburg.
 These spectra are generated with a bandwidth of 1200 Hz and a main magnetic field of 3 T. The points in FID are 1024.
 In advance a t-test based feature selection of the spectra of Regensburg was done to determine a feature selection for
